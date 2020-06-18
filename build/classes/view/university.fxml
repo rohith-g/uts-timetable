@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import au.edu.uts.ap.javafx.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="controller.UniversityController" styleClass="root">
+    <HBox alignment="center" spacing="10" styleClass="header">
+        <ImageView>
+            <image>
+                <Image url="@/resources/logo_2.png"/>
+            </image> 
+        </ImageView>
+        <Label text="Timetable System" styleClass="heading"/>
+    </HBox>
+    <HBox alignment="center" styleClass="content">
+        <ListView fx:id="studentList" prefWidth="300" prefHeight="200" items="${controller.university.students}">
+            <placeholder>
+                <Label text="No Students"/>
+            </placeholder>
+        </ListView>
+    </HBox>
+    <HBox alignment="center" spacing="10" styleClass="footer">
+        <Button fx:id="addBtn" onAction="#handleAdd" text="Add Student" disable="false" styleClass="button"/>
+        <Button fx:id="removeBtn" onAction="#removeStudent" text="Remove Student" disable="true" styleClass="button"/>
+        <Button fx:id="loginBtn" onAction="#login" text="Login" disable="true" styleClass="button"/>
+    </HBox>
+    <stylesheets>
+        <URL value="@style.css"/>
+    </stylesheets>
+</VBox>

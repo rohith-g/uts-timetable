@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?> 
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.collections.*?> 
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="controller.StudentController" styleClass="root">
+    <HBox spacing="10" styleClass="header">
+        <Label text="${'Logged in as ' + controller.student.name}" styleClass="heading"/>
+        <Pane HBox.hgrow="always"/>  
+        <GridPane Hgap="10" Vgap="10">
+            <Label text="Student number:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <Text text="${controller.student.number}" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            <Label text="Attendance:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <Text fx:id="attendanceTxt" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            <Label text="Scholarship:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <Text fx:id="scholarshipTxt" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+        </GridPane>
+    </HBox>
+    <VBox alignment="center" spacing="10" style="-fx-padding: 15 0 15 0;" styleClass="content">
+        <HBox spacing="10" alignment="center_left">
+            <Label text="My Activities" styleClass="heading"/>
+            <Pane HBox.hgrow="always"/>  
+            <Button fx:id="withdrawBtn" text="Withdraw" onAction="#handleWithdraw" disable="true" styleClass="button"/>
+        </HBox>
+        <TableView fx:id="activitiesTable" prefHeight="200">
+            <placeholder>
+                <Label text="Not Enrolled in any activities"/>
+            </placeholder>
+            <columns>
+                <TableColumn text="Subject">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="subjectNumber"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Group">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="group"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Activity">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="number"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Day">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="day"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Start">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="start"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Duration">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="duration"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Room">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="room"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Capacity">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="capacity"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Enrolled">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="enrolled"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+        <HBox spacing="10" alignment="center_left">
+            <Label text="Enrol into subject" styleClass="heading"/>
+            <ComboBox promptText="choose" fx:id="subjectChoice" items="${controller.university.subjects}"/>
+            <Pane HBox.hgrow="always"/>  
+            <Button fx:id="enrolBtn" text="Enrol" onAction="#handleEnrol" disable="true" styleClass="button"/>
+        </HBox>
+        <TableView fx:id="enrolTable" prefHeight="200">
+            <columns>
+                <TableColumn text="Subject">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="subjectNumber"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Group">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="group"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Activity">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="number"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Day">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="day"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Start">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="start"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Duration">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="duration"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Room">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="room"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Capacity">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="capacity"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Enrolled">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="enrolled"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+    </VBox>
+    <HBox alignment="center" spacing="10" styleClass="footer">
+        <Button fx:id="logoutBtn" text="Logout" onAction="#handleLogout" disable="false" styleClass="button"/>
+    </HBox>
+    <stylesheets>
+        <URL value="@style.css"/>
+    </stylesheets>
+</VBox>

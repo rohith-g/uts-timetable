@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="controller.AddStudentController" styleClass="root">
+    <HBox alignment="center" spacing="10" styleClass="header">
+        <Label text="Add new student" styleClass="heading"/>
+    </HBox>
+    <HBox alignment="center" spacing="10" styleClass="content">
+        <GridPane Hgap="10" Vgap="10">
+            <Label text="Student number:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <TextField fx:id="stuNumTf" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            <Label text="Student name:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <TextField fx:id="stuNameTf" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            <Label text="Attendance:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <HBox GridPane.columnIndex="1" GridPane.rowIndex="2" spacing="10">
+                <fx:define>
+                    <ToggleGroup fx:id="attendanceToggle"/>
+                </fx:define>
+                <children>
+                    <RadioButton text="Full Time" userData="ft" toggleGroup="$attendanceToggle"/>
+                    <RadioButton text="Part Time" userData="pt" toggleGroup="$attendanceToggle"/>
+                </children>
+            </HBox>
+            <Label text="Scholarship:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+            <CheckBox fx:id="scholarCBox" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+            <HBox alignment="center" GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="2">
+                <Label fx:id="errorText" text=""/>
+            </HBox>
+        </GridPane>
+    </HBox>
+    <HBox alignment="center" spacing="10" styleClass="footer">
+        <Button fx:id="cancelBtn" onAction="#handleCancel" text="Cancel" disable="false" styleClass="button"/>
+        <Button fx:id="addBtn" onAction="#handleAdd" text="Add" disable="true" styleClass="button"/>
+    </HBox>
+    <stylesheets>
+        <URL value="@style.css"/>
+    </stylesheets>
+</VBox>
