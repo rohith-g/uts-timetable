@@ -1,5 +1,7 @@
-# uts-timetable
+# UTS Timetable Application
 
-This project was a desktop application designed as part of the final assessment task for the subject applications programming at UTS. It is a timetable system that allows students to login and manage their classes.
+This project is a desktop application designed as part of the final assessment task for the subject Applications Programming at UTS. It is a timetable system that allows students to login and manage their classes.
 
-An executable jar file has been provided in the dist folder that can be used to run the application for a demo.
+## Deployment
+
+An executable .jar file has been provided in the dist folder that can be used to run the application for a demo.
